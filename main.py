@@ -31,8 +31,81 @@ import time
 #########################################################
 #                   Your Code Goes Below                #
 #########################################################
+def drawSquare(darty=None, width=0, top_left_x=0, top_left_y=0):
+  darty.up()
+  darty.goto(top_left_x,top_left_y)
+  for i in range(4):
+    darty.down()
+    darty.forward(width)
+    darty.right(90)
+    darty.up()
 
+def drawLine(darty=None, x_start=0, y_start=0, x_end=0, y_end=0):
+  darty.up()
+  darty.goto(x_start,y_start)
+  darty.down()
+  darty.goto(x_end,y_end)
+  darty.up
 
+def drawCircle(darty=None, radius=0):
+  darty.up()
+  darty.goto(0,-radius)
+  darty.down()
+  darty.circle(radius, steps=360)
+
+def setUpDartboard(myscreen=None, myturtle=None):
+  myturtle.color('black')
+  myscreen.setworldcoordinates(-2,-2,2,2)
+  drawSquare(myturtle, 2, -1, 1)
+  myturtle.color('black')
+  drawLine(myturtle, -1, 0, 1, 0)
+  drawLine(myturtle, 0, 1, 0, -1)
+  drawCircle(myturtle, 1)
+
+def isInCircle(darty=None, circle_center_x=0, circle_center_y=0, radius=0):
+  if darty.distance(0,0)<=radius:
+    return True 
+  if darty.distance(0,0) > radius:
+    return False
+  
+def throwDart(darty=None, in_color='green', out_variable='red'):
+  darty.up()
+  x = random.uniform(-1,1)
+  y = random.uniform(-1,1)
+  darty.goto(x,y)
+  if darty.distance(0,0) >= 1:
+    darty.color(out_variable)
+  else:
+    darty.color(in_color)
+  darty.dot()
+
+def playDarts(darty=None):
+  scoreA = 0
+  scoreB = 0
+  for i in range (10):
+    throwDart(darty, "pink")
+    if isInCircle(darty=darty, radius=1):
+      scoreA += 1
+      print("Player A scored a point")
+    throwDart(darty, in_color="purple")
+    if isInCircle(darty=darty, radius=1):
+      scoreB += 1
+      print("Player B scored a point")
+  if scoreA > scoreB:
+    print("Player A won")
+  elif scoreA == scoreB:
+    print("Tie")
+  else:
+    print("Player B won")
+
+def montePi(myturtle=None, numdarts=0):
+  inside_count=0
+  outside_count=0
+  for i in range (0, num_darts):
+    throwDart(darty)
+  if isInCircle(darty=None, circle_center_x=0,circule_center_y=0,radius=1):
+    inside_count = outside_count +1
+  return((inside_count/num_darts) *4)
 
 #########################################################
 #         Do not alter any code below here              #
@@ -45,26 +118,34 @@ def main():
         "in order to approximate pi: The ratio of darts in a unit circle\n"\
         "to the total number of darts in a 2X2 square should be\n"\
         "approximately  equal to pi/4")
+    
     print("=========== Part A ===========")
 
     #Create window, turtle, set up window as dartboard
     window = turtle.Screen()
+    window.tracer(4)
     darty = turtle.Turtle()
     darty.speed(0) # as fast as it will go!
     setUpDartboard(window, darty)
 
     # Loop for 10 darts to test your code
+    darty.speed(1)
+    window.tracer(1)
     for i in range(10):
         throwDart(darty)
     print("\tPart A Complete...")
     print("=========== Part B ===========")
     darty.clear()
+    darty.speed(0)
     setUpDartboard(window, darty)
+    darty.speed(1)
+    window.tracer(1)
     playDarts(darty)
     print("\tPart B Complete...")
     # Keep the window up until dismissed
     print("=========== Part C ===========")
     darty.clear()
+    darty.speed(0)
     setUpDartboard(window, darty)
     
     # Includes the following code in order to update animation periodically
