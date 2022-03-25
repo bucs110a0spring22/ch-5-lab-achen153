@@ -100,12 +100,21 @@ def playDarts(darty=None):
 
 def montePi(darty=None, number_darts=0):
   inside_count=0
-  outside_count=0
-  for i in range (0, number_darts):
-    throwDart(darty=darty)
-  if isInCircle(darty=darty, radius=1):
+  for i in range (number_darts):
+    throwDart(darty)
+  if isInCircle(darty, radius=1):
     inside_count = outside_count +1
   return((inside_count/number_darts)*4)
+
+def montePi(darty, num_darts):
+  inside_count=0
+  for i in range(num_darts):
+    throwDart(darty)
+    if isInCircle(darty,1):
+      inside_count += 1
+  result = inside_count / num_darts
+  return result * 4
+
 
 #########################################################
 #         Do not alter any code below here              #
