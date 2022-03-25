@@ -98,14 +98,6 @@ def playDarts(darty=None):
   else:
     print("Player B won")
 
-def montePi(darty=None, number_darts=0):
-  inside_count=0
-  for i in range (number_darts):
-    throwDart(darty)
-  if isInCircle(darty, radius=1):
-    inside_count = outside_count +1
-  return((inside_count/number_darts)*4)
-
 def montePi(darty, num_darts):
   inside_count=0
   for i in range(num_darts):
