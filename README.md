@@ -5,21 +5,20 @@
 
 ***
 
-_Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
- < Provide a short description of your program's functionality. No more than a couple sentences. >
+ This is a throw dart program that stimulates throwing darts.  It then uses throwing darts to approximate the value of pi.
 
 ## GRACE DAYS
-Grace days used for this assignment: < # >
+Grace days used for this assignment: < 1 >
 
-Grace days remaining: < # >/5
+Grace days remaining: < # 4/5
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
- < What parts of the project you were not able to complete >
+ I do not know why it doesn't give me an accurate approximation of pi, even if I enter 10000 darts.  
 
 ## REFERENCES:
- < List any outside resources used >
+ TA's and Moore
 
 ## MISCELLANEOUS COMMENTS:
- < Anything you would like the grader to know >
+ I really struggled with this lab, maybe because I've never approximated pi by taking the number of darts that fall within the circle divided by the total number of darts thrown to get  a ratio of 1/4 pi

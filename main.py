@@ -65,7 +65,7 @@ def setUpDartboard(myscreen=None, myturtle=None):
 def isInCircle(darty=None, circle_center_x=0, circle_center_y=0, radius=0):
   if darty.distance(0,0)<=radius:
     return True 
-  if darty.distance(0,0) > radius:
+  if darty.distance(0,0)>radius:
     return False
   
 def throwDart(darty=None, in_color='green', out_variable='red'):
@@ -98,14 +98,14 @@ def playDarts(darty=None):
   else:
     print("Player B won")
 
-def montePi(myturtle=None, numdarts=0):
+def montePi(darty=None, number_darts=0):
   inside_count=0
   outside_count=0
-  for i in range (0, num_darts):
-    throwDart(darty)
-  if isInCircle(darty=None, circle_center_x=0,circule_center_y=0,radius=1):
+  for i in range (0, number_darts):
+    throwDart(darty=darty)
+  if isInCircle(darty=darty, radius=1):
     inside_count = outside_count +1
-  return((inside_count/num_darts) *4)
+  return((inside_count/number_darts)*4)
 
 #########################################################
 #         Do not alter any code below here              #
